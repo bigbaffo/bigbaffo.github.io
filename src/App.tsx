@@ -118,15 +118,25 @@ export default function App() {
     "Das war so falsch, dass es Cage die Tränen in die Augen treibt!",
     "Hast du das im Cage-Meme-Handbuch nachgeschlagen?",
     "Cage schüttelt gerade enttäuscht den Kopf...",
-    "Das war so schlecht, dass Cage es in seinen nächsten Film aufnimmt!"
+    "Das war so schlecht, dass Cage es in seinen nächsten Film aufnimmt!",
+    "Selbst ein Toastbrot hätte das gewusst!",
+    "Du bist so falsch, dass selbst Google dich nicht findet!",
+    "Das war so daneben, dass es fast schon Kunst ist!",
+    "Cage hat gerade beschlossen, dich aus seinem Fanclub zu werfen!",
+    "Das war so schlecht, dass es weh tut!"
   ];
 
   const goodAnswers = [
-    "Gerade noch richtig geraten!",
-    "Puh, das war knapp!",
-    "Gute Wahl, aber sei vorsichtig!",
-    "Das war richtig, aber nur knapp!",
-    "Du hast es geschafft, aber es war knapp!"
+    "Gerade noch richtig geraten, du Glückspilz!",
+    "Puh, das war knapp, du Genie!",
+    "Gute Wahl, aber sei vorsichtig, du Schlaumeier!",
+    "Das war richtig, aber nur knapp, du Besserwisser!",
+    "Du hast es geschafft, aber es war knapp, du Held!",
+    "Wow, sogar ein blindes Huhn findet mal ein Korn!",
+    "Gut gemacht, aber das war reines Glück!",
+    "Richtig geraten, aber das war pures Glück!",
+    "Du hast es geschafft, aber nur weil Cage dir geholfen hat!",
+    "Richtig, aber das war so offensichtlich, dass selbst Cage es gewusst hätte!"
   ];
 
   const gifs = [
