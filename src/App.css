@@ -1,42 +1,247 @@
+body {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  background-color: rgba(192, 192, 192, 0.12);
+  background: url("https://wallpapers.com/images/hd/nicolas-cage-face-pattern-r1x1g7a1sr1nu968.jpg")
+    no-repeat center center;
+  color: #000000;
+  overflow: auto; /* Allow scrolling */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  overflow: auto; /* Allow scrolling */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
   text-align: center;
+  padding: 2rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(160, 160, 160, 0.55);
+  border: 2px solid #000080;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.question-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem;
+  color: #000080;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.answer-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+button {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 2px solid #000080;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-family: "Courier New", monospace;
+  background-color: #d3d3d3;
+  color: #000000;
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Break long words */
+  max-width: 90%;
+  min-width: 200px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #c0c0c0;
+}
+
+.score-section {
+  animation: bounce 1s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-10px);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.question-count {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #000080;
+}
+
+.cage-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: cageEnter 0.5s ease-out;
+}
+
+.cage-face {
+  border-radius: 50%;
+  border: 5px solid #ffcc00;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+}
+
+.insult {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  animation: floatUp 2s ease-in-out;
+}
+
+@keyframes cageEnter {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    transform: translate(-50%, 0);
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100px);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #a0a0a0;
+  padding: 2rem;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1000;
+  animation: popupEnter 0.5s ease-out;
+  border: 2px solid #000080;
+}
+
+.popup-gif {
+  width: 300px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.popup-message {
+  color: #000080;
+  font-size: 1.5rem;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+@keyframes popupEnter {
+  0% {
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 1rem;
+    height: auto; /* Allow scrolling */
+  }
+
+  .question-text {
+    font-size: 1.2rem;
+  }
+
+  .answer-section {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words */
+  }
+
+  .popup-gif {
+    width: 200px;
+  }
+
+  .popup-message {
+    font-size: 1.2rem;
+  }
+
+  .retry-button {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 2px solid #000080;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-family: "Courier New", monospace;
+    background-color: #d3d3d3;
+    color: #000000;
+  }
+
+  .retry-button:hover {
+    transform: scale(1.05);
+    background-color: #c0c0c0;
+  }
+}
+
+.test-button {
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 2px solid #000080;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-family: "Courier New", monospace;
+  background-color: #d3d3d3;
+  color: #000000;
+}
+
+.test-button:hover {
+  transform: scale(1.05);
+  background-color: #c0c0c0;
 }
